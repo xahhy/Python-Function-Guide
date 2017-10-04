@@ -136,3 +136,32 @@ enumerate is useful for obtaining an indexed list:
 6 Dog
 7 Rabbit
 ```
+## eval
+Evaluate the given source in the context of globals and locals.
+
+The source may be a string representing a Python expression
+or a code object as returned by compile().
+The globals must be a dictionary and locals can be any mapping,
+defaulting to the current globals and locals.
+If only globals is given, locals defaults to it.
+
+**Usage:** eval(expression[, globals[, locals]])
+
+**Notes:** `globals` or `locals` optional parameter is a dictionary object.
+
+**Examples:**
+This example shows three different position int variables which are added together in eval() function as a string.
+```python
+>>> global_var = 1
+... 
+... def function():
+...     local_var = 2
+...     local_env = locals()
+...     local_env.update({"additional_var":3})
+...     result = eval("global_var + global_var + additional_var", globals(), local_env)
+...     print(result)
+... 
+... function()
+... 
+5
+```
