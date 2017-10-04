@@ -103,3 +103,36 @@ Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
 >>> divmod(5.0, 2)
 (2.0, 1.0)
 ```
+## enumerate
+enumerate(iterable[, start]) -> iterator for index, value of iterable
+
+Return an enumerate object.  iterable must be another object that supports
+iteration.  The enumerate object yields pairs containing a count (from
+start, which defaults to zero) and a value yielded by the iterable argument.
+enumerate is useful for obtaining an indexed list:
+    (0, seq[0]), (1, seq[1]), (2, seq[2]), ...
+
+**Note:** The optional `start` parameter represents the number of the first item which default to zero.
+
+**Examples:**
+```python
+>>> items = ['Cat', 'Dog', 'Rabbit']
+... for item in enumerate(items):
+...     print(item, type(item))
+... 
+(0, 'Cat') <class 'tuple'>
+(1, 'Dog') <class 'tuple'>
+(2, 'Rabbit') <class 'tuple'>
+>>> for index, value in enumerate(items):
+...     print(index, value)
+...     
+0 Cat
+1 Dog
+2 Rabbit
+>>> for index, value in enumerate(items, 5):
+...     print(index, value)
+...         
+5 Cat
+6 Dog
+7 Rabbit
+```
