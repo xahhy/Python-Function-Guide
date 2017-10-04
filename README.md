@@ -165,3 +165,25 @@ This example shows three different position int variables which are added togeth
 ... 
 5
 ```
+## execfile
+This function is removed from python3. The execfile can be replaced with exec, compile,read.
+
+**Usage:** exec(compile("run.py"), "run.py", exec)
+
+**Examples:**
+```python
+>>> exec(compile(open('helloworld.py').read(),'helloworld.py','exec'))
+helloworld
+```
+## getattr
+getattr(object, name[, default])
+Return the value of the named attribute of object. name must be a string. If the string is the name of one of the object’s attributes, the result is the value of that attribute. 
+For example, getattr(x, 'foobar') is equivalent to x.foobar. 
+If the named attribute does not exist, default is returned if provided, otherwise AttributeError is raised.
+
+**Usage:** getattr(object, name[, default])
+
+**Examples:**
+```python
+>>> 
+```
