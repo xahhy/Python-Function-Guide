@@ -1,6 +1,8 @@
 # Python-Function-Guide
 Basic python3 function guide
-[TOC]
+- [Built-in functions](#built-in functions)
+    - [chr](#char)
+    
 # Built-in functions
 ## chr
 Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff. 
@@ -266,4 +268,50 @@ True
 >>> items = [[1], {}, ()]
 >>> any(items)
 True
+```
+## repr
+Return a **string** containing a **printable** representation of an object. 
+For many types, this function makes an attempt to return a string that would yield an object with the same value when passed to eval(), otherwise the representation is a string enclosed in angle brackets that contains the name of the type of the object together with additional information often including the name and address of the object. 
+A class can control what this function returns for its **instances** by defining a __repr__() method.
+
+**Usage:** repr(object)
+
+**Note:** Difference between str and repr:(\_\_repr\_\_ is more important than \_\_str\_\_)
+
+reference from <https://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python>
+> The default implementation is useless (it’s hard to think of one which wouldn’t be, but yeah)
+> - \_\_repr\_\_ goal is to be unambiguous
+> - \_\_str\_\_ goal is to be readable
+> - Container’s \_\_str\_\_ uses contained objects’ \_\_repr\_\_
+> 
+> if \_\_repr\_\_ is defined, and \_\_str\_\_ is not, the object will behave as though \_\_str\_\_=\_\_repr\_\_.
+> 
+> **Summary**:
+>
+> Implement \_\_repr\_\_ for any class you implement. This should be second nature. 
+> Implement \_\_str\_\_ if you think it would be useful to have a string version which errs on the side of more readability in favor of more ambiguity
+
+**Examples:**
+```python
+class Animal():
+    name = "Animal"
+
+    def sound(self):
+        return "miaomiao"
+
+    def __repr__(self):
+        return 'This is my repr'
+
+print(repr(Animal())) # 'This is my repr'
+print(repr(Animal)) # '<class '__main__.Animal'>
+
+>>> str(0.1)
+'0.1'
+>>> repr(0.1)
+'0.1'
+>>> hello = 'hello\n'
+>>> str(hello)
+'hello\n'
+>>> repr(hello)
+"'hello\\n'"
 ```
