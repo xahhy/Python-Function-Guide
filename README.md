@@ -34,7 +34,7 @@ This is equivalent to (real + imag*1j) where imag defaults to 0.
 
 **Usage:** complex(real[,imag])
 
-**Note:** complex object's real and imag is a float number. 
+**Note:** complex object's real and imag is a **float** number. 
 
 **Examples:**
 ```python
@@ -185,5 +185,84 @@ If the named attribute does not exist, default is returned if provided, otherwis
 
 **Examples:**
 ```python
->>> 
+>>> class Animal():
+...     name = "Animal"
+... 
+...     def sound(self):
+...         return "miaomiao"
+>>> getattr(Animal, 'name')
+'Animal'
+>>> getattr(Animal, 'sound') # Get the function address in the memory
+<function Animal.sound at 0x0315C078>
+>>> getattr(Animal, 'sound')(None) # You can run the function attribute with (...)
+'miaomiao'
+```
+## abs
+Return the absolute value of a number. The argument may be an **integer** or a **floating** point number. 
+If the argument is a **complex** number, its magnitude is returned.
+
+**Usage:** abs(x)
+
+**Examples:**
+```python
+>>> abs(-10) # return type is integer if argument is integer
+10
+>>> abs(-10.0) # return type is float if argument is float
+-10.0
+>>> abs(complex(3,4)) # return type is float if argument is a complex number
+5.0
+```
+## all
+Return True if all elements of the iterable are true (or if the iterable is empty). Equivalent to:
+```python
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+```
+
+**Usage:** all(iterable)
+
+**Note:** 
+The function return True only if all items in iterable object must be True.Otherwise returns False.
+False items: **{}, (), [], 0, False**
+
+**Examples:**
+```python
+>>> items = [0, 0, 0]
+>>> all(items)
+False
+>>> items = [1, 2, 3]
+>>> all(items)
+True
+>>> items = [[], {}, ()]
+>>> all(items)
+False
+```
+## any
+Return True if any element of the iterable is true. If the iterable is empty, return False. Equivalent to:
+```python
+def any(iterable):
+    for element in iterable:
+        if element:
+            return True
+    return False
+```
+
+**Usage:** any(iterable)
+
+**Note:** The function returns True if any one item in iterable object is True.Otherwise returns False.
+
+**Examples:**
+```python
+>>> items = [0, 0, 0]
+>>> any(items)
+False
+>>> items = [0, 2, 0]
+>>> any(items)
+True
+>>> items = [[1], {}, ()]
+>>> any(items)
+True
 ```
