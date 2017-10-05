@@ -1,5 +1,6 @@
 # Python-Function-Guide
 Basic python3 function guide
+[TOC]
 # Built-in functions
 ## chr
 Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff. 
