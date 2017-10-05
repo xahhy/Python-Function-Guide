@@ -324,3 +324,29 @@ seq must be an object which has a \_\_reversed\_\_() method or supports the sequ
 **Usage:** reversed(seq)
 
 **Examples:**
+```python
+class Animal():
+    """
+    Create customize reversible class with sequence protocol.
+    
+    implement __len__() and __getitem__()
+    """
+    name = "Animal"
+    values = [1, 2, 3, 4, 5]
+
+    def sound(self):
+        return "miaomiao"
+
+    def __repr__(self):
+        return 'This is my repr'
+        
+    def __len__(self):
+        return len(self.values)
+        
+    def __getitem__(self, item):
+        return self.values[item]
+        
+
+for item in reversed(Animal()):
+    print(item) # 5,4,3,2,1
+```
