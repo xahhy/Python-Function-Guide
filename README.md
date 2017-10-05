@@ -2,7 +2,8 @@
 Basic python3 function guide
 - [Built-in functions](#built-in functions)
     - [chr](#char)
-    
+# Awesome websites
+- <http://www.diveintopython3.net/special-method-names.html>
 # Built-in functions
 ## chr
 Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff. 
@@ -315,3 +316,11 @@ print(repr(Animal)) # '<class '__main__.Animal'>
 >>> repr(hello)
 "'hello\\n'"
 ```
+## reversed
+reversed(seq)
+Return a reverse **iterator**. 
+seq must be an object which has a \_\_reversed\_\_() method or supports the sequence protocol (the \_\_len\_\_() method and the \_\_getitem\_\_() method with integer arguments starting at 0).
+
+**Usage:** reversed(seq)
+
+**Examples:**
