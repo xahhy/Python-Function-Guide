@@ -5,10 +5,8 @@ Basic python3 function guide
 # Awesome websites
 - <http://www.diveintopython3.net/special-method-names.html>
 # Built-in functions
-## chr
+## chr(i)
 Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff. 
-
-**Usage:** chr(i)
 
 **Note:** chr() takes exactly one argument.
 
@@ -29,14 +27,11 @@ Traceback (most recent call last):
 ValueError: chr() arg not in range(0x110000)
 
 ```
-## complex
+## complex(real[,imag])
 complex(real[, imag]) -> complex number
     
 Create a complex number from a real part and an optional imaginary part.
 This is equivalent to (real + imag*1j) where imag defaults to 0.
-
-
-**Usage:** complex(real[,imag])
 
 **Note:** complex object's real and imag is a **float** number. 
 
@@ -57,9 +52,7 @@ This is equivalent to (real + imag*1j) where imag defaults to 0.
 >>> type(complex())
 <class 'complex'>
 ```
-## dir
-dir([object]) -> list of strings
-
+## dir([object]) -> list of strings
 If called without an argument, return the names in the current scope.
 Else, return an alphabetized list of names comprising (some of) the attributes
 of the given object, and of attributes reachable from it.
@@ -70,8 +63,6 @@ the default dir() logic is used and returns:
     of its bases.
   for any other object: its attributes, its class's attributes, and
     recursively the attributes of its class's base classes.
-
-**Usage:** dir([object])
 
 **Note:** This function returns the attributes of the object.
 
@@ -94,10 +85,8 @@ the default dir() logic is used and returns:
 >>> dir(Animal)
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'sound']
 ```
-## divmode
-Return the tuple (x//y, x%y).  Invariant: div*y + mod == x. 
-
-**Usage:** divmode(x, y)
+## divmode(x, y)
+Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
 
 **Examples:**
 ```python
@@ -107,9 +96,7 @@ Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
 >>> divmod(5.0, 2)
 (2.0, 1.0)
 ```
-## enumerate
-enumerate(iterable[, start]) -> iterator for index, value of iterable
-
+## enumerate(iterable[, start]) -> iterator for index, value of iterable
 Return an enumerate object.  iterable must be another object that supports
 iteration.  The enumerate object yields pairs containing a count (from
 start, which defaults to zero) and a value yielded by the iterable argument.
@@ -140,7 +127,7 @@ enumerate is useful for obtaining an indexed list:
 6 Dog
 7 Rabbit
 ```
-## eval
+## eval(expression[, globals[, locals]])
 Evaluate the given source in the context of globals and locals.
 
 The source may be a string representing a Python expression
@@ -148,8 +135,6 @@ or a code object as returned by compile().
 The globals must be a dictionary and locals can be any mapping,
 defaulting to the current globals and locals.
 If only globals is given, locals defaults to it.
-
-**Usage:** eval(expression[, globals[, locals]])
 
 **Notes:** `globals` or `locals` optional parameter is a dictionary object.
 
@@ -169,23 +154,19 @@ This example shows three different position int variables which are added togeth
 ... 
 5
 ```
-## execfile
+## exec(compile("run.py"), "run.py", exec)
 This function is removed from python3. The execfile can be replaced with exec, compile,read.
-
-**Usage:** exec(compile("run.py"), "run.py", exec)
 
 **Examples:**
 ```python
 >>> exec(compile(open('helloworld.py').read(),'helloworld.py','exec'))
 helloworld
 ```
-## getattr
+## getattr(object, name[, default])
 getattr(object, name[, default])
 Return the value of the named attribute of object. name must be a string. If the string is the name of one of the object’s attributes, the result is the value of that attribute. 
 For example, getattr(x, 'foobar') is equivalent to x.foobar. 
 If the named attribute does not exist, default is returned if provided, otherwise AttributeError is raised.
-
-**Usage:** getattr(object, name[, default])
 
 **Examples:**
 ```python
@@ -201,11 +182,9 @@ If the named attribute does not exist, default is returned if provided, otherwis
 >>> getattr(Animal, 'sound')(None) # You can run the function attribute with (...)
 'miaomiao'
 ```
-## abs
+## abs(x)
 Return the absolute value of a number. The argument may be an **integer** or a **floating** point number. 
 If the argument is a **complex** number, its magnitude is returned.
-
-**Usage:** abs(x)
 
 **Examples:**
 ```python
@@ -216,7 +195,7 @@ If the argument is a **complex** number, its magnitude is returned.
 >>> abs(complex(3,4)) # return type is float if argument is a complex number
 5.0
 ```
-## all
+## all(iterable)
 Return True if all elements of the iterable are true (or if the iterable is empty). Equivalent to:
 ```python
 def all(iterable):
@@ -225,8 +204,6 @@ def all(iterable):
             return False
     return True
 ```
-
-**Usage:** all(iterable)
 
 **Note:** 
 The function return True only if all items in iterable object must be True.Otherwise returns False.
@@ -244,7 +221,7 @@ True
 >>> all(items)
 False
 ```
-## any
+## any(iterable)
 Return True if any element of the iterable is true. If the iterable is empty, return False. Equivalent to:
 ```python
 def any(iterable):
@@ -253,8 +230,6 @@ def any(iterable):
             return True
     return False
 ```
-
-**Usage:** any(iterable)
 
 **Note:** The function returns True if any one item in iterable object is True.Otherwise returns False.
 
@@ -270,12 +245,10 @@ True
 >>> any(items)
 True
 ```
-## repr
+## repr(object)
 Return a **string** containing a **printable** representation of an object. 
 For many types, this function makes an attempt to return a string that would yield an object with the same value when passed to eval(), otherwise the representation is a string enclosed in angle brackets that contains the name of the type of the object together with additional information often including the name and address of the object. 
 A class can control what this function returns for its **instances** by defining a __repr__() method.
-
-**Usage:** repr(object)
 
 **Note:** Difference between str and repr:(\_\_repr\_\_ is more important than \_\_str\_\_)
 
@@ -316,12 +289,10 @@ print(repr(Animal)) # '<class '__main__.Animal'>
 >>> repr(hello)
 "'hello\\n'"
 ```
-## reversed
+## reversed(seq)
 reversed(seq)
 Return a reverse **iterator**. 
 seq must be an object which has a \_\_reversed\_\_() method or supports the sequence protocol (the \_\_len\_\_() method and the \_\_getitem\_\_() method with integer arguments starting at 0).
-
-**Usage:** reversed(seq)
 
 **Examples:**
 ```python
@@ -350,11 +321,9 @@ class Animal():
 for item in reversed(Animal()):
     print(item) # 5,4,3,2,1
 ```
-# hex
+# hex(x)
 Convert an integer number to a **lowercase** hexadecimal string prefixed with “0x”.
 If x is not a Python int object, it has to define an __index__() method that returns an integer.
-
-**Usage:** hex(x)
 
 **Examples:**
 ```python
@@ -371,12 +340,10 @@ If x is not a Python int object, it has to define an __index__() method that ret
 >>> f'{255:#x}', f'{255:x}', f'{255:X}'
 ('0xff', 'ff', 'FF')
 ```
-# id
+# id(object)
 Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same id() value.
 
 CPython implementation detail: This is the address of the object in memory.
-
-**Usage:** id(object)
 
 **Examples:**
 ```python
@@ -390,9 +357,7 @@ CPython implementation detail: This is the address of the object in memory.
 >>> id(2.0)
 140662947445952
 ```
-# input
-**Usage:** input([prompt])
-
+# input([prompt])
 If the prompt argument is present, it is written to standard output without a trailing newline.
 The function then reads a line from input, converts it to a string (stripping a trailing newline),
 and returns that. When EOF is read, EOFError is raised.
@@ -404,8 +369,7 @@ and returns that. When EOF is read, EOFError is raised.
 >>> s
 'hello python'
 ```
-# int
-**Usage:** int(x=0); int(x, base=10)
+# int(x=0); int(x, base=10)
 
 Return an integer object constructed from a number or string x, or return 0 if no arguments are given.
 If x is a number, return x.__int__(). For floating point numbers, this truncates towards zero.
@@ -453,4 +417,27 @@ TypeError: __int__ returned non-int (type str)
 ...
 >>> int(Animal(100))
 100
+```
+#isinstance(object, classinfo)
+Return true if the object argument is an instance of the **classinfo** argument,
+or of a (direct, indirect or virtual) subclass thereof.
+If object is not an object of the given type, the function always returns false.
+If classinfo is a tuple of type objects (or recursively, other such tuples),
+return true if object is an instance of any of the types.
+If classinfo is not a type or tuple of types and such tuples, a TypeError exception is raised.
+
+``Examples:**
+```python
+>>> class Animal:
+...     weight = 10
+...
+...     def __init__(self, weight:int):
+...         self.weight = 100
+...
+...     def __int__(self):
+...         return self.weight
+...
+>>> cat = Animal(100)
+>>> isinstance(cat, Animal)
+True
 ```
