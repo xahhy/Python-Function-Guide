@@ -350,3 +350,107 @@ class Animal():
 for item in reversed(Animal()):
     print(item) # 5,4,3,2,1
 ```
+# hex
+Convert an integer number to a **lowercase** hexadecimal string prefixed with “0x”.
+If x is not a Python int object, it has to define an __index__() method that returns an integer.
+
+**Usage:** hex(x)
+
+**Examples:**
+```python
+>>> hex(255)
+'0xff'
+>>> hex(-42)
+'-0x2a'
+
+# If you want to convert an integer number to an uppercase or lower hexadecimal string with prefix or not, you can use either of the following ways:
+>>> '%#x' % 255, '%x' % 255, '%X' % 255
+('0xff', 'ff', 'FF')
+>>> format(255, '#x'), format(255, 'x'), format(255, 'X')
+('0xff', 'ff', 'FF')
+>>> f'{255:#x}', f'{255:x}', f'{255:X}'
+('0xff', 'ff', 'FF')
+```
+# id
+Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same id() value.
+
+CPython implementation detail: This is the address of the object in memory.
+
+**Usage:** id(object)
+
+**Examples:**
+```python
+>>> x=1
+>>> id(x)
+9310240
+>>> id(1)
+9310240
+>>> id(2)
+9310272
+>>> id(2.0)
+140662947445952
+```
+# input
+**Usage:** input([prompt])
+
+If the prompt argument is present, it is written to standard output without a trailing newline.
+The function then reads a line from input, converts it to a string (stripping a trailing newline),
+and returns that. When EOF is read, EOFError is raised.
+
+**Example:**
+```python
+>>> s = input('--> ')
+--> >? hello python
+>>> s
+'hello python'
+```
+# int
+**Usage:** int(x=0); int(x, base=10)
+
+Return an integer object constructed from a number or string x, or return 0 if no arguments are given.
+If x is a number, return x.__int__(). For floating point numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal in radix base.
+Optionally, the literal can be preceded by + or - (with no space in between) and surrounded by whitespace.
+A base-n literal consists of the digits 0 to n-1, with a to z (or A to Z) having values 10 to 35. The default base is 10.
+The allowed values are 0 and 2–36. Base-2, -8, and -16 literals can be optionally prefixed with 0b/0B, 0o/0O, or 0x/0X, as with integer literals in code.
+Base 0 means to interpret exactly as a code literal, so that the actual base is 2, 8, 10, or 16, and so that int('010', 0) is not legal, while int('010') is, as well as int('010', 8).
+
+**Notes:** If the object is a class object. The class has a function __int__(self), this function must return a **integer** number.
+
+**Examples:**
+```python
+>>> int()
+0
+>>> int(3.1)
+3
+>>> int(3.5)
+3
+>>> int(3.8)
+3
+>>> class Animal:
+...     weight = 10
+...
+...     def __init__(self, weight:int):
+...         self.weight = 100
+...
+...     def __int__(self):
+...         return str(self.weight)
+...
+>>> int(Animal(100))
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+TypeError: __int__ returned non-int (type str)
+
+>>> class Animal:
+...     weight = 10
+...
+...     def __init__(self, weight:int):
+...         self.weight = 100
+...
+...     def __int__(self):
+...         return self.weight
+...
+>>> int(Animal(100))
+100
+```
