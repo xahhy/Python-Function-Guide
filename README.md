@@ -3,7 +3,8 @@ Basic python3 function guide
 - [Built-in functions](#built-in functions)
     - [chr](#char)
 # Awesome websites
-- <http://www.diveintopython3.net/special-method-names.html>
+- [Python魔术方法介绍 http://www.diveintopython3.net/special-method-names.html](http://www.diveintopython3.net/special-method-names.html)
+- [Python3官方网站介绍内置函数 https://docs.python.org/3/library/functions.html](https://docs.python.org/3/library/functions.html)
 # Built-in functions
 ## chr(i)
 Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff. 
